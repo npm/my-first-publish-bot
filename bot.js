@@ -5,6 +5,7 @@ var procMetrics = require('numbat-process');
 var Emitter = require('numbat-emitter');
 var bole = require('bole');
 var Twit = require('twit');
+var congrats = require('./congrats');
 
 var settings = require('./settings');
 
@@ -34,7 +35,7 @@ procMetrics(metrics, 1000 * 30);
 
 stream.on('tweet', function (message) {
   const screenName = message.user.screen_name;
-  const congrats = "🌹 roses are red, 🔵 violets are blue, 📦 published your first package? 😎 welcome to the cool crew";
+  const congrat = congrats.pick();
 
   if (message.in_reply_to_screen_name === 'myfirstpublish') {
     T.post('statuses/update', { status: '@' + screenName + ' ' + congrats }, function(err, data, response) {
