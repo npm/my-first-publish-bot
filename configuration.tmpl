@@ -1,0 +1,15 @@
+app = "my-first-publish-bot"
+description =  "tweet whenever someone publishes for the first time"
+processes = 1
+start =  "node ./bin/follow.js"
+
+[environment]
+    SERVICE_NAME = "my-first-publish-bot"
+    MONITOR_PORT = 5000
+    NODE_ENV = "{{node_env}}"
+    METRICS = "{{metrics_url}}"
+    ENVIRONMENT = "{{node_env}}"
+    TWITTER_ACCESS_TOKEN_SECRET = {{twitter_access_token_secret}}
+    TWITTER_ACCESS_TOKEN = {{twitter_access_token}}
+    TWITTER_CONSUMER_SECRET = {{twitter_consumer_secret}}
+    TWITTER_CONSUMER_KEY = {{twitter_consumer_key}}

@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/ashleygwilliams/my-first-publish-bot#readme",
   "dependencies": {
+    "bole": "^3.0.2",
+    "micro-monitor": "^2.0.0",
+    "numbat-emitter": "^3.2.1",
+    "numbat-process": "^2.1.0",
     "twit": "^2.2.5"
   }
 }
