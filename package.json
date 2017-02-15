@@ -1,24 +1,14 @@
 {
   "name": "my-first-publish-bot",
+  "description": "tweet whenever someone publishes for the first time",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ashleygwilliams/my-first-publish-bot.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Ashley Williams <ashley666ashley@gmail.com>",
   "bugs": {
     "url": "https://github.com/ashleygwilliams/my-first-publish-bot/issues"
   },
-  "homepage": "https://github.com/ashleygwilliams/my-first-publish-bot#readme",
   "dependencies": {
     "bole": "^3.0.2",
+    "ellipsize": "0.0.2",
     "micro-monitor": "^2.0.0",
     "numbat-emitter": "^3.2.1",
     "numbat-process": "^2.1.0",
@@ -26,5 +16,17 @@
   },
   "devDependencies": {
     "dotenv": "^4.0.0"
+  },
+  "homepage": "https://github.com/ashleygwilliams/my-first-publish-bot#readme",
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashleygwilliams/my-first-publish-bot.git"
+  },
+  "scripts": {
+    "start": "node ./bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
