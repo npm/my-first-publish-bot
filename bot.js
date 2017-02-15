@@ -48,11 +48,11 @@ stream.on('tweet', function (message) {
     const status = ellipsize(`@${screenName} ${congrat}`, 140);
     T.post('statuses/update', { status:  status }, function(err, data, response) {
       if (err) {
-        logger.error(`failed congratulating @${screenName}`)
+        logger.error(`failed to send "${congrat}" to  @${screenName}`)
         logger.error(err);
       }
       else {
-        logger.info(`sent congrats to @${screenName}`);
+        logger.info(`sent "${congrat}" to @${screenName}`);
       }
       process.emit('metric', {
         name: 'post',
