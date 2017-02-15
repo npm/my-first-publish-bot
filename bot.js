@@ -42,10 +42,10 @@ procMetrics(metrics, 1000 * 30);
 
 stream.on('tweet', function (message) {
   const screenName = message.user.screen_name;
-  const toast = congrats.pick();
+  const congrat = congrats.pick();
 
   if (message.in_reply_to_screen_name === 'myfirstpublish') {
-    const status = ellipsize(`@${screenName} ${toast}`, 140);
+    const status = ellipsize(`@${screenName} ${congrat}`, 140);
     T.post('statuses/update', { status:  status }, function(err, data, response) {
       if (err) {
         logger.error(`failed congratulating @${screenName}`)
