@@ -8,6 +8,7 @@ var Emitter = require('numbat-emitter');
 var bole = require('bole');
 var Twit = require('twit');
 var congrats = require('./congrats');
+const ellipsize = require('ellipsize');
 
 var settings = require('./settings');
 
@@ -30,7 +31,7 @@ var T = new Twit({
 });
 var stream = T.stream('user');
 
-var myFirstPublishSearch = {q: "#myfirstpublish", count: 10, result_type: "recent"}; 
+var myFirstPublishSearch = {q: "#myfirstpublish", count: 10, result_type: "recent"};
 
 var metrics = new Emitter({
   app: settings.name,
@@ -41,13 +42,17 @@ procMetrics(metrics, 1000 * 30);
 
 stream.on('tweet', function (message) {
   const screenName = message.user.screen_name;
-  const congrat = congrats.pick();
+  const toast = congrats.pick();
 
   if (message.in_reply_to_screen_name === 'myfirstpublish') {
-    T.post('statuses/update', { status: '@' + screenName + ' ' + congrats }, function(err, data, response) {
-      logger.info('sent congrats to @' + screenName);
+    const status = ellipsize(`@${screenName} ${toast}`, 140);
+    T.post('statuses/update', { status:  status }, function(err, data, response) {
       if (err) {
+        logger.error(`failed congratulating @${screenName}`)
         logger.error(err);
+      }
+      else {
+        logger.info(`sent congrats to @${screenName}`);
       }
       process.emit('metric', {
         name: 'post',
@@ -56,4 +61,3 @@ stream.on('tweet', function (message) {
     })
   }
 })
-
