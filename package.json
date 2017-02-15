@@ -23,5 +23,8 @@
     "numbat-emitter": "^3.2.1",
     "numbat-process": "^2.1.0",
     "twit": "^2.2.5"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0"
   }
 }

@@ -1,5 +1,7 @@
 'use strict'
 
+require('dotenv').config()
+
 var createMonitor = require('micro-monitor');
 var procMetrics = require('numbat-process');
 var Emitter = require('numbat-emitter');
