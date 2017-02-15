@@ -11,6 +11,10 @@ var congrats = require('./congrats');
 
 var settings = require('./settings');
 
+Array.prototype.pick = function() {
+  return this[Math.floor(Math.random()*this.length)];
+};
+
 createMonitor(settings.monitor_port);
 var logger = bole('bot');
 bole.output({
