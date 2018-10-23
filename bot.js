@@ -16,7 +16,7 @@ Array.prototype.pick = function() {
   return this[Math.floor(Math.random()*this.length)];
 };
 
-createMonitor(settings.monitor_port);
+createMonitor(settings.monitor_port, () => {});
 var logger = bole('bot');
 bole.output({
   level: 'info',
